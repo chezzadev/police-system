@@ -11,7 +11,7 @@ Located in your **Database** in the **Rank** **Column**
 
 ### Installation 
 * Install like any other FiveM Resource.
-* Then make sure to run the **SQL** file within the resource to make it function correctly.
+* Then make sure to run the **SQL** file that is included in the resource to make it function correctly.
 
 ### Requirements
 * [MySQL-Async](https://forum.fivem.net/t/release-mysql-async-library-3-0-8/21881)
