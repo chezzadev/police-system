@@ -21,7 +21,7 @@ Located in your **Database** in the **Rank** **Column**
 
 ### Credits
 * @Warxander - [WarMenu](https://forum.fivem.net/t/release-0-9-8-final-warmenu-lua-menu-framework/41249) Framework 
-* @Huurkiller20 - Helped testing out the script.
+* @Huurkiller20 - Helped testing out the resource.
 
 ### Support
-* Comment on the fivem post, I will try my best to help you :) (https://forum.fivem.net/t/release-simple-911-command-with-location/303775)
+* Comment on the fivem post, I will try my best to help you :) (https://forum.fivem.net/t/release-simple-police-system-sql-menu-jail-much-more/397483)
