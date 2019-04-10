@@ -9,7 +9,7 @@ Located in your **Database** in the **Rank** **Column**
 * **'0'** - Not an Officer
 * **'1'** - Normal police officer (Access to general actions and most options)
 * **'2'** - Chief (Can add or remove other officers from the server)
-Image: https://i.gyazo.com/a136756d7df8c4453416296f5029e78b.png
+#Image: https://i.gyazo.com/a136756d7df8c4453416296f5029e78b.png
 
 ### Installation 
 * Install like any other FiveM Resource.
