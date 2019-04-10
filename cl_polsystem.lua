@@ -8,7 +8,6 @@ onduty = false
 
 AddEventHandler('onClientMapStart', function()
     TriggerServerEvent('onjoin')
-    TriggerServerEvent('check')
 end)
 
 Citizen.CreateThread(function()
