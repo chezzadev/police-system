@@ -21,9 +21,13 @@ end)
 RegisterServerEvent('onjoin')
 AddEventHandler('onjoin', function()
 	steamhex = GetPlayerIdentifiers(source)[1]
-	MySQL.Async.execute("INSERT INTO police (identifier, rank) VALUES (@identifier, @rank)", {["@identifier"] = steamhex, ["@rank"] = 0})
+	MySQL.Async.fetchAll("SELECT * FROM `police` WHERE `identifier` = @identifier", {["@identifier"] = steamhex}, function(result)
+		local identi = result[1]
+		if identi == nil then
+			MySQL.Async.execute("INSERT INTO police (identifier, rank) VALUES (@identifier, @rank)", {["@identifier"] = steamhex, ["@rank"] = 0})
+		end
+	end)
 end)
-
 
 RegisterServerEvent('onduty')
 AddEventHandler('onduty', function()
