@@ -6,8 +6,10 @@ local maxsecs = 500 -- Max seconds police can put people in jail for --
 ### Perms/Ranks
 **Ranks** (Only two for now more in the future if wanted)
 Located in your **Database** in the **Rank** **Column**
- * **1** - Normal police officer (Access to general actions and most options)
-* **2** - Chief (Can add or remove other officers from the server)
+* **'0'** - Not an Officer
+* **'1'** - Normal police officer (Access to general actions and most options)
+* **'2'** - Chief (Can add or remove other officers from the server)
+Image: https://i.gyazo.com/a136756d7df8c4453416296f5029e78b.png
 
 ### Installation 
 * Install like any other FiveM Resource.
