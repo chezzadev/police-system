@@ -117,7 +117,10 @@ Citizen.CreateThread(function()
             WarMenu.Display()
         elseif WarMenu.IsMenuOpened('jail') then
             if WarMenu.Button('Jail') then
-                TriggerServerEvent('jail', KeyboardInput("Enter the persons ID", "", 5), KeyboardInput("Enter Jail Time", "", 3))
+                -- Seconds
+		--TriggerServerEvent('jail', KeyboardInput("Enter the persons ID", "", 5), KeyboardInput("Enter Jail Time", "", 3))
+		-- Minutes
+		TriggerServerEvent('jail', KeyboardInput("Enter the persons ID", "", 5), (KeyboardInput("Enter Jail Time", "", 3)*60))			
             elseif WarMenu.Button('Unjail') then
                 TriggerServerEvent('unjail', KeyboardInput("Enter the persons ID", "", 5))
             elseif WarMenu.MenuButton('←←← Back','actions') then
