@@ -107,14 +107,14 @@ end)
 RegisterServerEvent('jail')
 AddEventHandler('jail', function(id1, time1)
 	local pid = tonumber(id1)
-	local time = tonumber(time1)
+	local time = tonumber(time1 * 60)
 	if time > maxsecs then
 		time = maxsecs
 	end
 	if GetPlayerName(pid) ~= nil then
 		local playername = GetPlayerName(pid)
 		TriggerClientEvent("jail", pid, time)
-		TriggerClientEvent('chatMessage', -1, 'Jail', { 255, 0, 0 }, playername ..' has been jailed for '.. time ..' seconds.')
+		TriggerClientEvent('chatMessage', -1, 'Jail', { 255, 0, 0 }, playername ..' has been jailed for '.. time1 ..' month(s).')
 	else
 		TriggerClientEvent('chatMessage', source, "SYSTEM", {255, 0, 0}, "Incorrect player ID")
 	end

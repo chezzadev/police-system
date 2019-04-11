@@ -26,14 +26,18 @@ end)
 
 Citizen.CreateThread(function()
     local emotes = { 'Clipboard', 'Notepad', 'Lean', 'Cop Idle', 'Binoculars', 'Camera'}
+    local loadouts = { 'LSPD', 'SAHP', 'BCSO', 'SWAT'}
     local currentEmoteIndex = 1
     local selectedEmoteIndex = 1
+    local currentLoadIndex = 1
+    local selectedLoadIndex = 1
 
     WarMenu.CreateMenu('menu', 'Police Menu')
     WarMenu.CreateSubMenu('actions', 'menu', 'Actions')
     WarMenu.CreateSubMenu('trafficactions', 'actions', 'Traffic Actions')
     WarMenu.CreateSubMenu('physactions', 'actions', 'Physical Actions')
     WarMenu.CreateSubMenu('jail', 'actions', 'Jail Actions')
+    WarMenu.CreateSubMenu('loadouts', 'actions', 'Loadouts')
     WarMenu.CreateSubMenu('emoteMenu', 'menu', 'Emotes')
     WarMenu.CreateSubMenu('placeables', 'menu', 'Placeables')
     WarMenu.CreateSubMenu('polmanage', 'menu', 'Police Management')
@@ -81,8 +85,26 @@ Citizen.CreateThread(function()
                 if WarMenu.MenuButton('Traffic Actions', 'trafficactions') then
                 elseif WarMenu.MenuButton('Physical Actions', 'physactions') then
                 elseif WarMenu.MenuButton('Jail Actions', 'jail') then
+                elseif WarMenu.MenuButton('Loadouts', 'loadouts') then
                 elseif WarMenu.MenuButton('←←← Back','menu') then
                 end
+            end
+            WarMenu.Display()
+        elseif WarMenu.IsMenuOpened('loadouts') then
+            if WarMenu.ComboBox('Select Loadout', loadouts, currentLoadIndex, selectedLoadIndex, function(currentIndexLoad, selectedIndexLoad)
+                currentLoadIndex = currentIndexLoad
+                selectedLoadIndex = selectedIndexLoad
+            end) then
+            elseif WarMenu.Button("Set Loadout") then
+                if selectedLoadIndex == 1 then
+                    setLoadout(1)
+                elseif selectedLoadIndex == 2 then 
+                    setLoadout(2)
+                elseif selectedLoadIndex == 3 then  
+                    setLoadout(3) 
+                elseif selectedLoadIndex == 4 then
+                    setLoadout(4)
+                end	
             end
             WarMenu.Display()
         elseif WarMenu.IsMenuOpened('trafficactions') then
@@ -785,6 +807,8 @@ Citizen.CreateThread(function()
     end
 end)
 
+-- { On/Off Duty } --
+
 function onDuty()
     Citizen.CreateThread(function()
         local copModel = GetHashKey("s_m_y_cop_01")
@@ -815,6 +839,71 @@ function offDuty()
         if HasModelLoaded(copModel) then
 	        drawNotification("You have gone off duty.")
             SetPlayerModel(PlayerId(), copModel)
+        end
+    end)
+end
+
+-- { Set Loadout } -
+
+function setLoadout(num)
+    Citizen.CreateThread(function()
+        if num == 1 then
+            local model = GetHashKey("s_m_y_cop_01")
+            RequestModel(model)
+            while not HasModelLoaded(model) do
+                Wait(0)
+            end
+            if HasModelLoaded(model) then
+                SetPlayerModel(PlayerId(), model)
+            end
+            Wait(500)
+            local ped = GetPlayerPed(-1)
+            GiveWeaponToPed(ped, 'WEAPON_COMBATPISTOL', 200, false, false)
+            GiveWeaponToPed(ped, 'WEAPON_FLASHLIGHT', 200, false, false)
+            GiveWeaponToPed(ped, 'WEAPON_STUNGUN', 200, false, false)
+        elseif num == 2 then
+            local model = GetHashKey("s_m_y_hwaycop_01")
+            RequestModel(model)
+            while not HasModelLoaded(model) do
+                Wait(0)
+            end
+            if HasModelLoaded(model) then
+                SetPlayerModel(PlayerId(), model)
+            end
+            Wait(500)
+            local ped = GetPlayerPed(-1)
+            GiveWeaponToPed(ped, 'WEAPON_COMBATPISTOL', 200, false, false)
+            GiveWeaponToPed(ped, 'WEAPON_FLASHLIGHT', 200, false, false)
+            GiveWeaponToPed(ped, 'WEAPON_STUNGUN', 200, false, false)
+        elseif num == 3 then 
+            local model = GetHashKey("s_m_y_sheriff_01")
+            RequestModel(model)
+            while not HasModelLoaded(model) do
+                Wait(0)
+            end
+            if HasModelLoaded(model) then
+                SetPlayerModel(PlayerId(), model)
+            end
+            Wait(500)
+            local ped = GetPlayerPed(-1)
+            GiveWeaponToPed(ped, 'WEAPON_COMBATPISTOL', 200, false, false)
+            GiveWeaponToPed(ped, 'WEAPON_FLASHLIGHT', 200, false, false)
+            GiveWeaponToPed(ped, 'WEAPON_STUNGUN', 200, false, false)
+        elseif num == 4 then
+            local model = GetHashKey("s_m_y_swat_01")
+            RequestModel(model)
+            while not HasModelLoaded(model) do
+                Wait(0)
+            end
+            if HasModelLoaded(model) then
+                SetPlayerModel(PlayerId(), model)
+            end
+            Wait(500)
+            local ped = GetPlayerPed(-1)
+            GiveWeaponToPed(ped, 'WEAPON_COMBATPISTOL', 200, false, false)
+            GiveWeaponToPed(ped, 'WEAPON_FLASHLIGHT', 200, false, false)
+            GiveWeaponToPed(ped, 'WEAPON_STUNGUN', 200, false, false)
+            GiveWeaponToPed(ped, 'WEAPON_CARBINERIFLE', 200, false, true)
         end
     end)
 end
