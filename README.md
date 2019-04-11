@@ -15,6 +15,8 @@ Located in your **Database** in the **Rank** **Column**
 ### Installation 
 * Install like any other FiveM Resource.
 * Then make sure to run the **SQL** file that is included in the resource to make it function correctly.
+* Join the game and it should create a new line in the database with your Steam Hex and rank next to it. Make sure to change the rank to 2 if you are an admin, so you can access the **Police Management** tab within the Menu.
+* Once done, load into your server and hit 'F5' and the menu should pop. Happy policing ! :)
 
 ### Requirements
 * [MySQL-Async](https://forum.fivem.net/t/release-mysql-async-library-3-0-8/21881)
