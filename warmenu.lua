@@ -177,7 +177,7 @@ function WarMenu.CreateMenu(id, title)
 	menus[id].aboutToBeClosed = false
 
 	menus[id].x = 0.760
-	menus[id].y = 0.042
+	menus[id].y = 0.342	--Standard (Top-Right): menus[id].y = 0.042
 	menus[id].width = 0.23
 
 	menus[id].currentOption = 1
